@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body> 
+
+  <h1 style="text-align: center">MSTEI TASK 01</h1>
+
+  <h2 style="text-align: center">Qur'an Surah Al-Baqarah Ayat 1-5</h2>
+  <div id
+  <table id="users" style="text-align: right"></table> 
+  <script>
+    fetch("http://api.alquran.cloud/v1/surah/2?limit=5") 
+    .then(response => response.json()) 
+    .then(json => {  
+        let li = `<tr><th>Number</th><th>Text</th></tr>`;  
+        json.data.ayahs.forEach(ayat => { 
+            li += `<tr> 
+                <td>${ayat.numberInSurah}</td>
+                <td>${ayat.text}</td>          
+            </tr>`; 
+        }); 
+    document.getElementById("users").innerHTML = li; 
+}); 
+  </script>
+</body>
+</html>
